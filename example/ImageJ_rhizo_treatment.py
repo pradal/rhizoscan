@@ -19,7 +19,7 @@ from __future__ import absolute_import
 get_ipython().magic(u'pylab notebook')
 from matplotlib import pyplot as plt
 from IPython.display import Image
- 
+
 
 
 # ## RhizoScan Import
@@ -39,7 +39,7 @@ from rhizoscan.root.image.seed import _cluster_seed
 # In[ ]:
 
 
-image_filename ='https://github.com/fortfe/rhizoscan/blob/fort_scripts/example/Seq%208_Boite%2000002_graphe.JPG'
+image_filename =r'Seq 8_Boite 00002_graphe.JPG'
 #image_filename = ''
 Image(image_filename)
 
@@ -103,7 +103,7 @@ for region in regions:
     rect = mpatches.Rectangle((minc, minr), maxc - minc, maxr - minr,
                               fill=False, edgecolor='red', linewidth=2)
     ax.add_patch(rect)
-    
+
 fig
 
 
@@ -115,10 +115,10 @@ seed_map = np.zeros(rmask.shape, dtype=np.uint8)
 
 for region in regions:
     minr, minc, maxr, maxc = region.bbox
-    seed_map[minr, minc:maxc+1] = label_image[minr, minc:maxc+1]
-            
-    
-    
+    seed_map[minr:minr+5, minc:maxc+1] = label_image[minr:minr+5, minc:maxc+1]
+
+
+
 
 
 # In[ ]:
